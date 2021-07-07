@@ -1,17 +1,13 @@
 # Your code goes here!
 class Anagram
-  attr_reader :word
+  attr_accessor :word
 
   def initialize(word)
     @word = word
   end
 
   def match(ary)
-    returns = []
     sorted = @word.split("").sort
-    ary.each do |et|
-      returns << et if et.split("").sort == sorted
-    end
-    returns
+    ary.select {|et| et.split("").sort == sorted}
   end
 end
